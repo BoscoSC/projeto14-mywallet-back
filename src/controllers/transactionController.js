@@ -2,7 +2,6 @@ import { transactionsCollection } from "../db.js";
 
 export async function newTransaction(req, res) {
   const transaction = res.locals.transaction;
-  console.log(transaction);
 
   try {
     await transactionsCollection.insertOne(transaction);
@@ -14,7 +13,6 @@ export async function newTransaction(req, res) {
 
 export async function listTransactions(req, res) {
   const userId = res.locals.user._id;
-  console.log(userId);
 
   try {
     const userTransactions = await transactionsCollection

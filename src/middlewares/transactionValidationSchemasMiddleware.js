@@ -15,6 +15,7 @@ export default function transactionValidationMiddleware(req, res, next) {
   };
 
   const validation = transactionSchema.validate(transaction, {
+    convert: false,
     abortEarly: false,
   });
 
