@@ -19,7 +19,9 @@ export async function listTransactions(req, res) {
       .find({ user: userId })
       .toArray();
 
-    res.status(200).send(userTransactions);
+    const newArr = userTransactions.slice(0).reverse();
+
+    res.status(200).send(newArr);
   } catch (err) {
     return res.status(500).send(err.message);
   }
